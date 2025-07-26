@@ -21,7 +21,7 @@ This is a modern, responsive, and fully customizable developer **Portfolio Templ
 ## 🛠️ Technologies Used
 
 - **React** with TypeScript
-- **Tailwind CSS** for styling
+- **Bootstrap CSS** for styling
 - **Framer Motion** for animations
 - **Lucide React Icons**
 - **React Hooks** for state management
