@@ -29,30 +29,30 @@ const Projects = () => {
     {
       title: 'Car Everywhere',
       description: 'A comprehensive car rental platform featuring identity verification, seamless payment processing, and real-time communication for short-term rentals.',
-      tech: ['Node.js', 'React', 'PostgreSQL', 'JWT', 'Docker'],
-      link: '#',
+      tech: ['Node.js', 'React', 'PostgreSQL', 'Express', 'JWT', 'Docker'],
+      link: 'https://github.com/dannypro1',
       color: '#e53e3e',
       gradient: 'linear-gradient(135deg, #e53e3e, #fc8181)',
       icon: '🚗',
     },
     {
-      title: 'UmutungoBox',
-      description: 'Advanced asset management system enabling institutions to efficiently monitor inventory, track usage patterns, and optimize maintenance schedules.',
-      tech: ['Django', 'React', 'SQLite', 'Tailwind'],
-      link: '#',
-      color: '#4299e1',
-      gradient: 'linear-gradient(135deg, #4299e1, #63b3ed)',
-      icon: '📦',
+     title: 'CertChain',
+     description: 'A secure blockchain-based certification system designed to verify, issue, and manage digital certificates with full transparency and immutability.',
+     tech: ['Node.js', 'React', 'MongoDB', 'Solidity', 'Tailwind'],
+     link: 'https://github.com/dannypro1',
+     color: '#805ad5',
+     gradient: 'linear-gradient(135deg, #805ad5, #9f7aea)',
+     icon: '🔗'
     },
     {
-      title: 'Fleet Management System',
-      description: 'Centralized digital solution transforming fleet operations with vehicle monitoring, cost analysis, and operational efficiency optimization.',
-      tech: ['Flask', 'MySQL', 'Bootstrap'],
-      link: '#',
-      color: '#48bb78',
-      gradient: 'linear-gradient(135deg, #48bb78, #68d391)',
-      icon: '🚛',
-    },
+        title: 'AgriChain',
+        description: 'A smart agriculture supply chain platform that ensures transparency, traceability, and efficiency from farm to market using modern digital tools.',
+        tech: ['Flask', 'MySQL', 'Bootstrap'],
+        link: 'https://github.com/dannypro1',
+        color: '#38a169',
+        gradient: 'linear-gradient(135deg, #38a169, #68d391)',
+        icon: '🌾'
+      },
     {
       title: 'Events Management System',
       description: 'Sophisticated platform for academic and social events featuring role-based access, intelligent booking systems, and real-time notifications.',
@@ -62,15 +62,16 @@ const Projects = () => {
       gradient: 'linear-gradient(135deg, #9f7aea, #b794f6)',
       icon: '🎭',
     },
-    {
-      title: 'INYANGE ZA MARIYA Website',
-      description: 'Dynamic choir platform for music publishing, concert promotion, and multimedia content streaming with integrated video management.',
-      tech: ['WordPress', 'Elementor', 'YouTube API'],
-      link: '#',
-      color: '#f6ad55',
-      gradient: 'linear-gradient(135deg, #f6ad55, #fbb775)',
-      icon: '🎵',
-    }
+   {
+    title: 'Portfolio Platform',
+    description: 'Personal portfolio platform showcasing professional experience, featured projects, skills, and contact information with responsive and modern UI.',
+    tech: ['React', 'Tailwind CSS','bootstrap', 'Framer Motion', 'Node.js'],
+    link: 'https://dannypro1.com',
+    color: '#f6ad55',
+    gradient: 'linear-gradient(135deg, #f6ad55, #fbb775)',
+    icon: '💼',
+}
+
   ];
 
   return (

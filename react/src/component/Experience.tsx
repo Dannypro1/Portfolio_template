@@ -27,10 +27,10 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: 'Senior Software Developer',
-      company: 'Tech Solutions Inc.',
-      location: 'San Francisco, CA',
-      period: '2022 - Present',
+      title: 'Intermediate Software Developer - Penetration Testing',
+      company: 'Currently Student',
+      location: 'Kigali, Rwanda',
+      period: '2025 - Present',
       type: 'Full-time',
       description: 'Leading development of enterprise web applications and managing a team of 5 developers. Architected scalable solutions serving 100k+ users.',
       achievements: [
@@ -39,15 +39,15 @@ const Experience = () => {
         'Mentored junior developers and established coding standards',
         'Implemented CI/CD pipeline reducing deployment time by 60%'
       ],
-      technologies: ['React', 'Node.js', 'AWS', 'Docker', 'PostgreSQL', 'GraphQL'],
+      technologies: ['React', 'Node.js', 'AWS', 'Docker', 'PostgreSQL', 'GraphQL','Python','Kali linux OS'],
       color: '#e53e3e',
       icon: '🚀'
     },
     {
       title: 'Full Stack Developer',
-      company: 'Digital Agency Co.',
-      location: 'Austin, TX',
-      period: '2020 - 2022',
+      company: 'Binary Hub',
+      location: 'Nyarugenge, Kigali, Rwanda',
+      period: '2025 - 20--',
       type: 'Full-time',
       description: 'Developed responsive web applications for various clients including e-commerce platforms, corporate websites, and custom business solutions.',
       achievements: [
@@ -64,7 +64,7 @@ const Experience = () => {
       title: 'Frontend Developer',
       company: 'StartUp Ventures',
       location: 'Remote',
-      period: '2019 - 2020',
+      period: '2020 - 2024',
       type: 'Contract',
       description: 'Specialized in creating modern, responsive user interfaces for startup companies. Collaborated with design teams to implement pixel-perfect designs.',
       achievements: [
@@ -80,7 +80,7 @@ const Experience = () => {
     {
       title: 'Junior Web Developer',
       company: 'Creative Media Lab',
-      location: 'New York, NY',
+      location: 'Remote',
       period: '2018 - 2019',
       type: 'Full-time',
       description: 'Started my professional journey developing websites and learning modern web technologies. Worked on various small to medium-sized projects.',
@@ -97,8 +97,8 @@ const Experience = () => {
     {
       title: 'Web Development Intern',
       company: 'Innovation Hub',
-      location: 'Boston, MA',
-      period: '2017 - 2018',
+      location: 'Remote',
+      period: '2021-2022',
       type: 'Internship',
       description: 'Gained hands-on experience in web development while studying. Worked on internal tools and contributed to open-source projects.',
       achievements: [
@@ -114,9 +114,9 @@ const Experience = () => {
   ];
 
   const stats = [
-    { label: 'Years of Experience', value: '7+', color: '#e53e3e' },
-    { label: 'Projects Completed', value: '120+', color: '#4299e1' },
-    { label: 'Companies Worked', value: '5', color: '#48bb78' },
+    { label: 'Years of Experience', value: '5+', color: '#e53e3e' },
+    { label: 'Projects Completed', value: '5+', color: '#4299e1' },
+    { label: 'Companies Worked', value: '1', color: '#48bb78' },
     { label: 'Team Members Led', value: '15+', color: '#9f7aea' }
   ];
 
@@ -425,12 +425,13 @@ const Experience = () => {
                 I'm always excited about new opportunities to create innovative solutions 
                 and contribute to meaningful projects. Let's build something amazing together!
               </p>
-              <button 
-                className="btn px-4 py-3 fw-semibold"
-                style={{
-                  background: 'linear-gradient(135deg, #e53e3e, #ff6b6b)',
-                  color: 'white',
-                  border: 'none',
+              <a href="#contact">
+                <button 
+                  className="btn px-4 py-3 fw-semibold"
+                  style={{
+                    background: 'linear-gradient(135deg, #e53e3e, #ff6b6b)',
+                    color: 'white',
+                    border: 'none',
                   borderRadius: '50px',
                   fontSize: '16px',
                   transition: 'all 0.3s ease',
@@ -446,7 +447,7 @@ const Experience = () => {
                 }}
               >
                 Let's Work Together
-              </button>
+              </button></a>
             </div>
           </div>
         </div>

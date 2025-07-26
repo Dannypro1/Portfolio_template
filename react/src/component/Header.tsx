@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,6 +14,21 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  function App() {
+  return (
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<Projects />} />
+        {/* Add more routes */}
+      </Routes>
+    </Router>
+  );
+}
+
+
 
   const navItems = [
     { id: 'About', label: 'About', icon: '👨‍💻' },
@@ -51,7 +66,7 @@ const Navbar = () => {
           {/* Brand/Logo */}
           <a 
             className="navbar-brand fw-bold d-flex align-items-center"
-            href="#"
+            href="/"
             style={{
               color: 'white',
               fontSize: '1.5rem',
@@ -76,6 +91,7 @@ const Navbar = () => {
           </a>
 
           {/* Mobile Menu Toggle */}
+        
           <button
             className="navbar-toggler border-0"
             type="button"
@@ -281,66 +297,7 @@ const Navbar = () => {
       {/* Spacer to prevent content from hiding behind fixed navbar */}
       <div style={{ height: '80px' }}></div>
 
-      {/* Custom Styles */}
-      <style jsx>{`
-        .navbar-brand:hover {
-          text-decoration: none !important;
-        }
-        
-        .nav-link:focus {
-          box-shadow: none !important;
-          outline: none !important;
-        }
-        
-        .btn:focus {
-          box-shadow: none !important;
-          outline: none !important;
-        }
-        
-        @media (max-width: 991px) {
-          .navbar {
-            padding: 8px 0 !important;
-          }
-          
-          .navbar-brand {
-            font-size: 1.3rem !important;
-          }
-        }
-        
-        @media (max-width: 576px) {
-          .navbar-brand {
-            font-size: 1.2rem !important;
-          }
-          
-          .mobile-menu .btn {
-            font-size: 14px !important;
-            padding: 12px 16px !important;
-          }
-        }
-        
-        /* Smooth scrolling for the entire page */
-        html {
-          scroll-behavior: smooth;
-        }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-          width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-          background: #0a0a0a;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-          background: linear-gradient(135deg, #e53e3e, #ff6b6b);
-          border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-          background: linear-gradient(135deg, #d53e3e, #ff5b5b);
-        }
-      `}</style>
+      
 
       {/* Bootstrap CSS CDN */}
       <link 

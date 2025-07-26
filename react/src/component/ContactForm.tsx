@@ -29,7 +29,7 @@ const Contact = () => {
       title: 'WhatsApp',
       description: 'Message me instantly',
       icon: <Phone className="w-8 h-8" />,
-      href: 'https://wa.me/250781617102',
+      href: 'https://wa.me/250790951505',
       color: '#25d366',
       bgGradient: 'linear-gradient(135deg, #25d366, #128c7e)',
       emoji: '💬'
@@ -38,7 +38,7 @@ const Contact = () => {
       title: 'Email',
       description: 'Professional inquiries',
       icon: <Mail className="w-8 h-8" />,
-      href: 'mailto:dannypro260@gmail.com',
+      href: 'mailto:himanadanny@gmail.com',
       color: '#ea4335',
       bgGradient: 'linear-gradient(135deg, #ea4335, #fbbc04)',
       emoji: '📧'
@@ -47,25 +47,25 @@ const Contact = () => {
       title: 'LinkedIn',
       description: 'Professional network',
       icon: <Linkedin className="w-8 h-8" />,
-      href: 'https://www.linkedin.com/in/yourusername/',
+      href: 'https://www.linkedin.com/in/hategekimana-danny-17b227377/',
       color: '#0077b5',
       bgGradient: 'linear-gradient(135deg, #0077b5, #00a0dc)',
       emoji: '💼'
     },
     {
-      title: 'Telegram',
+      title: 'GitHub',
       description: 'Quick messaging',
       icon: <Send className="w-8 h-8" />,
-      href: 'https://t.me/yourusername',
+      href: 'https://github.com/dannypro1',
       color: '#0088cc',
       bgGradient: 'linear-gradient(135deg, #0088cc, #229ed9)',
-      emoji: '✈️'
+      emoji: '🐱'
     },
     {
       title: 'Location',
       description: 'Kigali, Rwanda',
       icon: <MapPin className="w-8 h-8" />,
-      href: 'https://goo.gl/maps/your-location-link',
+      href: 'https://goo.gl/maps/your-location-linkhttps://share.google/Pg85lfZ2BEWnDvcJ3',
       color: '#e53e3e',
       bgGradient: 'linear-gradient(135deg, #e53e3e, #ff6b6b)',
       emoji: '📍'
@@ -312,7 +312,7 @@ const Contact = () => {
                 
                 <div className="d-flex flex-wrap justify-content-center gap-3">
                   <a
-                    href="mailto:dannypro260@gmail.com"
+                    href="mailto:himanadanny@gmail.com"
                     className="btn px-4 py-2 fw-semibold text-decoration-none"
                     style={{
                       background: 'linear-gradient(135deg, #e53e3e, #ff6b6b)',
@@ -337,7 +337,7 @@ const Contact = () => {
                   </a>
                   
                   <a
-                    href="https://wa.me/250781617102"
+                    href="https://wa.me/250790951505"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn px-4 py-2 fw-semibold text-decoration-none"

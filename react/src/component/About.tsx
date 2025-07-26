@@ -18,9 +18,9 @@ const About = () => {
         const progress = currentStep / steps;
         
         setAnimatedStats({
-          projects: Math.floor(120 * progress),
+          projects: Math.floor(5 * progress),
           satisfaction: Math.floor(95 * progress),
-          experience: Math.floor(10 * progress)
+          experience: Math.floor(4 * progress)
         });
         
         if (currentStep >= steps) {
@@ -47,10 +47,10 @@ const About = () => {
     };
   }, []);
 
-  const skills = ['HTML5', 'CSS3', 'JavaScript', 'Node.js', 'React', 'Git', 'GitHub', 'TypeScript', 'MongoDB', 'Express.js','Kali linux OS','pentest'];
+  const skills = ['HTML5', 'CSS3', 'JavaScript', 'Python' ,'Node.js', 'React', 'Git', 'GitHub', 'TypeScript', 'MongoDB','Postgresql', 'Express.js','Kali linux OS','pentest'];
   const services = [
-    { icon: '💻', title: 'Website Development', color: '#e53e3e', desc: 'Custom web solutions with modern frameworks' },
-    { icon: '📱', title: 'App Development', color: '#4299e1', desc: 'Cross-platform mobile applications' },
+    { icon: '💻', title: 'Website and System Development', color: '#e53e3e', desc: 'Custom web solutions with modern frameworks' },
+    { icon: '🔐', title: 'Penetration Testing', color: '#4299e1', desc: 'Vulnerability testing of systems' },
     { icon: '☁️', title: 'Website Hosting', color: '#48bb78', desc: 'Reliable cloud hosting solutions' },
     { icon: '🎨', title: 'UI/UX Design', color: '#9f7aea', desc: 'User-centered design experiences' },
     { icon: '⚡', title: 'Performance Optimization', color: '#f6ad55', desc: 'Speed and efficiency improvements' },
@@ -58,15 +58,15 @@ const About = () => {
   ];
 
   const education = [
-    { year: '2018-2022', degree: 'Bachelor of Computer Science', institution: 'University of Technology', gpa: '3.8/4.0' },
-    { year: '2020', degree: 'Full Stack Web Development', institution: 'FreeCodeCamp Certification', gpa: 'Certified' },
-    { year: '2021', degree: 'React Development Specialization', institution: 'Meta Professional Certificate', gpa: 'Certified' }
+    { year: '2021-2026', degree: 'currently studying information technology in Year 4', institution: 'University of Rwanda', gpa: '3.8/4.0' },
+    { year: '2023', degree: 'Ethical hacker and certificate in cyber security essentials', institution: 'Cisco', gpa: 'Certified' },
+    { year: '2024', degree: 'Certificate in .NET Development', institution: 'Meta Professional Certificate', gpa: 'Certified' }
   ];
 
   const experience = [
-    { year: '2022-Present', role: 'Senior Software Developer', company: 'Tech Solutions Inc.', desc: 'Leading development of enterprise web applications' },
-    { year: '2020-2022', role: 'Frontend Developer', company: 'Digital Agency Co.', desc: 'Created responsive websites for various clients' },
-    { year: '2019-2020', role: 'Junior Developer', company: 'StartUp Ventures', desc: 'Developed and maintained company websites' }
+    { year: '2025-Present', role: 'intermediate Software Developer', company: 'Binary Hub', desc: 'Supporting the development team in building scalable web applications' },
+    { year: '2020-2022', role: 'Penetration tester', company: '-', desc: 'Conducted security assessments and vulnerability testing' },
+    { year: '2019-2020', role: 'Junior Developer', company: 'Personal Projects', desc: 'Developed and maintained personal websites' }
   ];
 
   return (
@@ -94,6 +94,7 @@ const About = () => {
       }} />
 
       {/* About Hero Section */}
+      <section id="about">
       <div className="container-fluid py-5">
         <div className="container">
           <div className="row align-items-center py-5">
@@ -112,23 +113,23 @@ const About = () => {
                 </h1>
                 
                 <h2 className="h3 mb-4" style={{ color: '#cbd5e0' }}>
-                  Jensen Omega - Software Developer
+                  HATEGEKIMANA Danny - Software Developer & Ethical Hacker - penetester
                 </h2>
                 
                 <div className="mb-4" style={{ color: '#a0aec0', lineHeight: '1.8', fontSize: '16px' }}>
                   <p className="mb-3">
-                    I started my software journey from photography. Through that, I learned to 
-                    love the process of creating brave brands. Since then, I've had no choice 
-                    but to chase developments. I'm filled with joy for building and breaking things.
+                    I began my journey into software through photography..a craft that taught me to appreciate storytelling, 
+                    detail, and visual balance. That creative foundation naturally evolved into a passion for building bold digital experiences. 
+                    Today,I’m not only a software developer, but also an ethical hacker and penetration tester. 
+                    I thrive on the challenge of both creating and securing systems—whether 
+                    I’m building something from scratch or breaking it apart to understand its weaknesses. 
+                    The process of turning ideas into functional, 
+                    secure realities keeps me constantly inspired.
                   </p>
-                  <p className="mb-3">
-                    With over 10 years of experience in software development, I specialize in 
-                    creating elegant, scalable solutions that solve real-world problems. My 
-                    passion lies in transforming complex ideas into intuitive digital experiences.
-                  </p>
+                  
                   <p className="mb-0">
-                    When I'm not coding, you'll find me exploring new technologies, contributing 
-                    to open-source projects, or sharing knowledge with the developer community.
+                   When I'm not coding, you'll find me exploring new technologies, performing penetration tests, 
+                   contributing to open-source projects, or sharing knowledge with the developer community.
                   </p>
                 </div>
                 
@@ -456,47 +457,10 @@ const About = () => {
           </div>
         </div>
       </div>
+      </section>
 
       {/* Custom Styles */}
-      <style jsx>{`
-        @keyframes slideInLeft {
-          from { opacity: 0; transform: translateX(-50px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-        
-        @keyframes slideInRight {
-          from { opacity: 0; transform: translateX(50px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-        
-        @keyframes rotate {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-20px); }
-        }
-        
-        @media (max-width: 768px) {
-          .display-2 { font-size: 2.5rem !important; }
-          .profile-circle { width: 280px !important; height: 280px !important; }
-          .profile-inner { width: 250px !important; height: 250px !important; font-size: 3rem !important; }
-          .floating-elements > div { width: 30px !important; height: 30px !important; }
-          .service-card { padding: 20px !important; }
-          .stat-card h3 { font-size: 1.8rem !important; }
-          .timeline-card { padding: 20px !important; }
-        }
-        
-        @media (max-width: 576px) {
-          .display-2 { font-size: 2rem !important; }
-          .profile-circle { width: 240px !important; height: 240px !important; }
-          .profile-inner { width: 210px !important; height: 210px !important; font-size: 2.5rem !important; }
-          .skills-section .badge { padding: 6px 12px !important; font-size: 12px !important; }
-          .stat-card { height: auto !important; padding: 20px !important; }
-        }
-      `}</style>
+      
 
       {/* Bootstrap CSS CDN */}
       <link 

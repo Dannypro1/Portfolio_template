@@ -7,47 +7,47 @@ const Footer = () => {
     { 
       name: 'GitHub', 
       icon: '🐙', 
-      url: 'https://github.com/yourusername',
+      url: 'https://github.com/dannypor1',
       color: '#333'
     },
     { 
       name: 'LinkedIn', 
       icon: '💼', 
-      url: 'https://linkedin.com/in/yourusername',
+      url: 'https://linkedin.com/in/hategekimana-danny-17b227377',
       color: '#0077b5'
     },
     { 
       name: 'Twitter', 
       icon: '🐦', 
-      url: 'https://twitter.com/yourusername',
+      url: 'https://twitter.com/dannypro1',
       color: '#1da1f2'
     },
     { 
       name: 'Email', 
       icon: '📧', 
-      url: 'mailto:your.email@example.com',
+      url: 'mailto:himanadanny@gmail.com',
       color: '#e53e3e'
     },
     { 
       name: 'Portfolio', 
       icon: '🌐', 
-      url: 'https://yourportfolio.com',
+      url: 'http://dannypro1.com',
       color: '#4299e1'
     },
     { 
       name: 'Instagram', 
       icon: '📸', 
-      url: 'https://instagram.com/yourusername',
+      url: 'https://instagram.com/dannypro__',
       color: '#e4405f'
     }
   ];
 
   const quickLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'About', href: '#About' },
+    { name: 'Skills', href: '#Skills' },
+    { name: 'Experience', href: '#Experience' },
+    { name: 'Projects', href: '#Projects' },
+    { name: 'Contact', href: '#Contact' }
   ];
 
   const handleQuickLinkClick = (href) => {
@@ -93,18 +93,18 @@ const Footer = () => {
           <div className="col-lg-4 col-md-6 mb-4">
             <div className="mb-4">
               <h4 className="fw-bold mb-3 d-flex align-items-center">
-                <span className="me-2" style={{ fontSize: '2rem' }}>⚡</span>
+                <img src="/public/vite.svg" alt="Vite Logo" style={{ width: '30px', marginRight: '10px' }} />
                 <span style={{
                   background: 'linear-gradient(135deg, #e53e3e, #ff6b6b)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text'
                 }}>
-                  Your Name
+                  Danny Pro
                 </span>
               </h4>
-              <p style={{ color: '#a0aec0', lineHeight: '1.6', fontSize: '15px' }}>
-                Full Stack Developer passionate about creating innovative digital solutions. 
+              <p style={{ color: '#a0aec0', lineHeight: '1.6', fontSize: '15px',textAlign: 'justify' }}>
+                Full Stack Developer and Penetration Tester passionate about creating innovative digital solutions. 
                 Turning ideas into reality through clean code and modern design.
               </p>
             </div>
@@ -114,7 +114,7 @@ const Footer = () => {
               <div className="d-flex align-items-center mb-2">
                 <span className="me-2" style={{ fontSize: '16px' }}>📧</span>
                 <a 
-                  href="mailto:your.email@example.com"
+                  href="mailto:himanadanny@gmail.com"
                   style={{ 
                     color: '#a0aec0', 
                     textDecoration: 'none',
@@ -124,16 +124,16 @@ const Footer = () => {
                   onMouseEnter={(e) => e.target.style.color = '#e53e3e'}
                   onMouseLeave={(e) => e.target.style.color = '#a0aec0'}
                 >
-                  your.email@example.com
+                  himanadanny@gmail.com
                 </a>
               </div>
               <div className="d-flex align-items-center mb-2">
                 <span className="me-2" style={{ fontSize: '16px' }}>📱</span>
-                <span style={{ color: '#a0aec0', fontSize: '14px' }}>+1 (555) 123-4567</span>
+                <span style={{ color: '#a0aec0', fontSize: '14px' }}>+(250) 790 951 505</span>
               </div>
               <div className="d-flex align-items-center">
                 <span className="me-2" style={{ fontSize: '16px' }}>📍</span>
-                <span style={{ color: '#a0aec0', fontSize: '14px' }}>Your City, Country</span>
+                <span style={{ color: '#a0aec0', fontSize: '14px' }}>Kigali, Rwanda</span>
               </div>
             </div>
           </div>
@@ -179,7 +179,10 @@ const Footer = () => {
                 'Backend Development', 
                 'UI/UX Design',
                 'Mobile Development',
-                'Web Consulting'
+                'Web Consulting',
+                'Penetration Testing',
+                'Cybersecurity Solutions'
+
               ].map((service, index) => (
                 <li key={index} className="mb-2">
                   <span style={{ color: '#a0aec0', fontSize: '14px' }}>
@@ -280,22 +283,22 @@ const Footer = () => {
           <div className="row align-items-center">
             <div className="col-md-6 mb-2 mb-md-0">
               <p className="mb-0" style={{ color: '#a0aec0', fontSize: '14px' }}>
-                &copy; {new Date().getFullYear()} Your Name. All rights reserved.
+                &copy; {new Date().getFullYear()} DP. All rights reserved.
               </p>
             </div>
             <div className="col-md-6 text-md-end">
               <p className="mb-0" style={{ color: '#a0aec0', fontSize: '14px' }}>
-                Made with{' '}
+                Made By{' '}
                 <span 
                   style={{ 
                     color: '#e53e3e', 
                     animation: 'heartbeat 1.5s ease-in-out infinite' 
                   }}
                 >
-                  ❤️
+                  <img src="/public/vite.svg" alt="Vite Logo" style={{ width: '16px', verticalAlign: 'middle', marginLeft: '4px', marginRight: '4px' }} />
                 </span>
-                {' '}and{' '}
-                <span style={{ color: '#4299e1' }}>React</span>
+                {' '}--{' '}
+                <span style={{ color: '#4299e1' }}>Danny Pro</span>
               </p>
             </div>
           </div>
