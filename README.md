@@ -1,110 +1,69 @@
-# 🌐 Portfolio Template
+# React + TypeScript + Vite
 
-This is a modern, responsive, and fully customizable developer **Portfolio Template** built with **React**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**. It's designed to help you showcase your skills, projects, and contact information in a visually appealing and professional way.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-![Portfolio Screenshot](./screenshot.png) <!-- Replace with actual screenshot path if available -->
+Currently, two official plugins are available:
 
----
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## 🚀 Features
+## Expanding the ESLint configuration
 
-- ⚡ Fast and responsive design
-- 🎨 Customizable sections (About, Experience, Projects, Skills, Contact)
-- 🌀 Smooth animations with Framer Motion
-- 🌙 Dark mode ready (if added)
-- 📱 Mobile-friendly layout
-- 🧠 Clean and maintainable codebase using TypeScript
-- 💼 Easily deployable on Vercel, Netlify, or GitHub Pages
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
----
+```js
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-## 🛠️ Technologies Used
+      // Remove tseslint.configs.recommended and replace with this
+      ...tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      ...tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      ...tseslint.configs.stylisticTypeChecked,
 
-- **React** with TypeScript
-- **Bootstrap CSS** for styling
-- **Framer Motion** for animations
-- **Lucide React Icons**
-- **React Hooks** for state management
-- **React Scroll** or native scroll behaviors for navigation
-
----
-
-## 📂 Project Structure
-
-```
-src/
-├── assets/           # Static images and icons
-├── components/       # Reusable components (Navbar, Footer, etc.)
-├── data/             # JSON or JS data files for experience/projects
-├── pages/            # Individual sections like About, Skills, etc.
-├── App.tsx           # Main app component
-└── main.tsx          # Entry point
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
 
----
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-## 🧑‍💻 Getting Started
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/Dannypro1/Portfolio_template.git
-cd Portfolio_template
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
-
-### 2. Install dependencies
-
-```bash
-npm install
-```
-
-### 3. Run the development server
-
-```bash
-npm run dev
-```
-
-Visit `http://localhost:5173` to view the site in your browser.
-
----
-
-## ✨ Customization
-
-1. **Update your personal info:**
-   - Open `src/data/` or `src/components/` and update the relevant data like your name, bio, contacts, etc.
-
-2. **Add projects:**
-   - Modify `ProjectCard.tsx` or a similar file to showcase your projects.
-
-3. **Change styling:**
-   - Use Tailwind utility classes or customize the Tailwind config.
-
----
-
-## 📦 Build for Production
-
-```bash
-npm run build
-```
-
----
-
-## 📤 Deployment
-
-You can deploy this site easily using:
-
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
-- [GitHub Pages](https://pages.github.com/)
-
----
-
-## 🙏 Credits
-
-Created with ❤️ by [@Dannypro1](https://github.com/Dannypro1)
-
----
-
-## 📄 License
-
-This project is open-source and available under the [MIT License](LICENSE).
