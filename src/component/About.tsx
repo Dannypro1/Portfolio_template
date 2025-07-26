@@ -156,14 +156,16 @@ const About = () => {
                           backdropFilter: 'blur(10px)'
                         }}
                         onMouseEnter={(e) => {
-                          e.target.style.backgroundColor = 'rgba(229, 62, 62, 0.2)';
-                          e.target.style.borderColor = '#e53e3e';
-                          e.target.style.transform = 'translateY(-2px)';
+                          const target = e.target as HTMLElement;
+                          target.style.backgroundColor = 'rgba(229, 62, 62, 0.2)';
+                          target.style.borderColor = '#e53e3e';
+                          target.style.transform = 'translateY(-2px)';
                         }}
                         onMouseLeave={(e) => {
-                          e.target.style.backgroundColor = 'rgba(45, 55, 72, 0.8)';
-                          e.target.style.borderColor = 'rgba(255,255,255,0.1)';
-                          e.target.style.transform = 'translateY(0)';
+                          const target = e.target as HTMLElement;
+                          target.style.backgroundColor = 'rgba(45, 55, 72, 0.8)';
+                          target.style.borderColor = 'rgba(255,255,255,0.1)';
+                          target.style.transform = 'translateY(0)';
                         }}
                       >
                         {skill}
