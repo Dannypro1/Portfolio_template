@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 
 const Experience = () => {
-  const [visibleItems, setVisibleItems] = useState([]);
+  const [visibleItems, setVisibleItems] = useState<number[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const index = parseInt(entry.target.dataset.index);
+          const index = parseInt((entry.target as HTMLElement).dataset.index || '0');
           setVisibleItems(prev => [...new Set([...prev, index])]);
         }
       });
@@ -438,12 +438,14 @@ const Experience = () => {
                   boxShadow: '0 8px 20px rgba(229, 62, 62, 0.3)'
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.transform = 'translateY(-2px)';
-                  e.target.style.boxShadow = '0 12px 30px rgba(229, 62, 62, 0.4)';
+                  const target = e.target as HTMLElement;
+                  target.style.transform = 'translateY(-2px)';
+                  target.style.boxShadow = '0 12px 30px rgba(229, 62, 62, 0.4)';
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.transform = 'translateY(0)';
-                  e.target.style.boxShadow = '0 8px 20px rgba(229, 62, 62, 0.3)';
+                  const target = e.target as HTMLElement;
+                  target.style.transform = 'translateY(0)';
+                  target.style.boxShadow = '0 8px 20px rgba(229, 62, 62, 0.3)';
                 }}
               >
                 Let's Work Together
@@ -454,56 +456,7 @@ const Experience = () => {
       </section>
 
       {/* Custom Styles */}
-      <style jsx>{`
-        @keyframes slideInUp {
-          from { 
-            opacity: 0; 
-            transform: translateY(30px); 
-          }
-          to { 
-            opacity: 1; 
-            transform: translateY(0); 
-          }
-        }
-        
-        .experience-card::before {
-          content: '';
-          position: absolute;
-          top: 50%;
-          width: 0;
-          height: 0;
-          border-style: solid;
-          transform: translateY(-50%);
-        }
-        
-        .timeline-item:nth-child(odd) .experience-card::before {
-          right: -15px;
-          border-width: 15px 0 15px 15px;
-          border-color: transparent transparent transparent rgba(45, 55, 72, 0.6);
-        }
-        
-        .timeline-item:nth-child(even) .experience-card::before {
-          left: -15px;
-          border-width: 15px 15px 15px 0;
-          border-color: transparent rgba(45, 55, 72, 0.6) transparent transparent;
-        }
-        
-        @media (max-width: 768px) {
-          .display-4 { font-size: 2.5rem !important; }
-          .experience-card { margin-left: 60px !important; }
-          .timeline-item { flex-direction: column !important; }
-          .experience-card::before { display: none !important; }
-          .stat-card { margin-bottom: 20px !important; }
-        }
-        
-        @media (max-width: 576px) {
-          .display-4 { font-size: 2rem !important; }
-          .experience-card { padding: 20px !important; margin-left: 40px !important; }
-          .timeline-line-mobile { left: 20px !important; }
-          .timeline-dot-mobile { left: -37px !important; }
-          .cta-card { padding: 30px 20px !important; }
-        }
-      `}</style>
+      
 
       {/* Bootstrap CSS CDN */}
       <link 

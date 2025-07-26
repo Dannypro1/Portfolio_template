@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import  { useState, useEffect } from 'react';
+
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,18 +15,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  function App() {
-  return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Projects />} />
-        {/* Add more routes */}
-      </Routes>
-    </Router>
-  );
-}
+ 
 
 
 
@@ -38,10 +27,14 @@ const Navbar = () => {
     { id: 'contact', label: 'Contact', icon: '📧' }
   ];
 
-  const handleNavClick = (sectionId) => {
+  interface HandleNavClick {
+    (sectionId: string): void;
+  }
+
+  const handleNavClick: HandleNavClick = (sectionId) => {
     setActiveSection(sectionId);
     setIsMobileMenuOpen(false);
-    
+
     // Smooth scroll to section
     const element = document.getElementById(sectionId);
     if (element) {
@@ -74,14 +67,16 @@ const Navbar = () => {
               transition: 'all 0.3s ease'
             }}
             onMouseEnter={(e) => {
-              e.target.style.background = 'linear-gradient(135deg, #e53e3e, #ff6b6b)';
-              e.target.style.webkitBackgroundClip = 'text';
-              e.target.style.webkitTextFillColor = 'transparent';
-              e.target.style.backgroundClip = 'text';
+              const target = e.target as HTMLElement;
+              target.style.background = 'linear-gradient(135deg, #e53e3e, #ff6b6b)';
+              (target.style as HTMLElement['style'])['webkitBackgroundClip'] = 'text';
+              (target.style as HTMLElement['style'])['webkitTextFillColor'] = 'transparent';
+              target.style.backgroundClip = 'text';
             }}
             onMouseLeave={(e) => {
-              e.target.style.background = 'none';
-              e.target.style.webkitTextFillColor = 'white';
+              const target = e.target as HTMLElement;
+              target.style.background = 'none';
+              (target.style as CSSStyleDeclaration).webkitTextFillColor = 'white';
             }}
           >
             <span className="me-2" style={{ fontSize: '1.8rem' }}>
@@ -95,6 +90,7 @@ const Navbar = () => {
           <button
             className="navbar-toggler border-0"
             type="button"
+            title="Toggle mobile menu"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             style={{
               background: 'rgba(229, 62, 62, 0.2)',
@@ -155,7 +151,7 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="navbar-collapse justify-content-center d-none d-lg-flex">
             <ul className="navbar-nav">
-              {navItems.map((item, index) => (
+              {navItems.map((item) => (
                 <li key={item.id} className="nav-item mx-2">
                   <button
                     className="nav-link btn border-0 px-4 py-2 d-flex align-items-center"
@@ -177,16 +173,18 @@ const Navbar = () => {
                     }}
                     onMouseEnter={(e) => {
                       if (activeSection !== item.id) {
-                        e.target.style.background = 'rgba(229, 62, 62, 0.2)';
-                        e.target.style.borderColor = '#e53e3e';
-                        e.target.style.transform = 'translateY(-2px)';
+                        const target = e.target as HTMLElement;
+                        target.style.background = 'rgba(229, 62, 62, 0.2)';
+                        target.style.borderColor = '#e53e3e';
+                        target.style.transform = 'translateY(-2px)';
                       }
                     }}
                     onMouseLeave={(e) => {
                       if (activeSection !== item.id) {
-                        e.target.style.background = 'transparent';
-                        e.target.style.borderColor = 'rgba(255,255,255,0.1)';
-                        e.target.style.transform = 'translateY(0)';
+                        const target = e.target as HTMLElement;
+                        target.style.background = 'transparent';
+                        target.style.borderColor = 'rgba(255,255,255,0.1)';
+                        target.style.transform = 'translateY(0)';
                       }
                     }}
                   >
@@ -212,14 +210,16 @@ const Navbar = () => {
                 boxShadow: '0 4px 15px rgba(66, 153, 225, 0.3)'
               }}
               onMouseEnter={(e) => {
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 8px 25px rgba(66, 153, 225, 0.4)';
-                e.target.style.background = 'linear-gradient(135deg, #3182ce, #4299e1)';
+                const target = e.target as HTMLElement;
+                target.style.transform = 'translateY(-2px)';
+                target.style.boxShadow = '0 8px 25px rgba(66, 153, 225, 0.4)';
+                target.style.background = 'linear-gradient(135deg, #3182ce, #4299e1)';
               }}
               onMouseLeave={(e) => {
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 15px rgba(66, 153, 225, 0.3)';
-                e.target.style.background = 'linear-gradient(135deg, #4299e1, #63b3ed)';
+                const target = e.target as HTMLElement;
+                target.style.transform = 'translateY(0)';
+                target.style.boxShadow = '0 4px 15px rgba(66, 153, 225, 0.3)';
+                target.style.background = 'linear-gradient(135deg, #4299e1, #63b3ed)';
               }}
             >
               <a href='#' style={{textDecoration: 'none', color: 'white'}}><span className="me-2">📄</span>

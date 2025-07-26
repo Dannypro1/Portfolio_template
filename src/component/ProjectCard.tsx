@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 
 const Projects = () => {
-  const [visibleItems, setVisibleItems] = useState([]);
-  const [hoveredCard, setHoveredCard] = useState(null);
+  const [visibleItems, setVisibleItems] = useState<number[]>([]);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const index = parseInt(entry.target.dataset.index);
+            const index = parseInt((entry.target as HTMLElement).dataset.index || '0');
             setVisibleItems((prev) => [...new Set([...prev, index])]);
           }
         });
@@ -261,16 +261,18 @@ const Projects = () => {
                       cursor: 'default'
                     }}
                     onMouseEnter={(e) => {
-                      e.target.style.backgroundColor = `${project.color}20`;
-                      e.target.style.borderColor = `${project.color}40`;
-                      e.target.style.color = project.color;
-                      e.target.style.transform = 'translateY(-2px)';
+                      const target = e.target as HTMLElement;
+                      target.style.backgroundColor = `${project.color}20`;
+                      target.style.borderColor = `${project.color}40`;
+                      target.style.color = project.color;
+                      target.style.transform = 'translateY(-2px)';
                     }}
                     onMouseLeave={(e) => {
-                      e.target.style.backgroundColor = 'rgba(255,255,255,0.05)';
-                      e.target.style.borderColor = 'rgba(255,255,255,0.1)';
-                      e.target.style.color = '#cbd5e0';
-                      e.target.style.transform = 'translateY(0)';
+                      const target = e.target as HTMLElement;
+                      target.style.backgroundColor = 'rgba(255,255,255,0.05)';
+                      target.style.borderColor = 'rgba(255,255,255,0.1)';
+                      target.style.color = '#cbd5e0';
+                      target.style.transform = 'translateY(0)';
                     }}
                   >
                     {tech}
@@ -300,12 +302,14 @@ const Projects = () => {
                   boxShadow: `0 4px 14px 0 ${project.color}40`
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.transform = 'translateY(-2px)';
-                  e.target.style.boxShadow = `0 6px 20px 0 ${project.color}50`;
+                  const target = e.target as HTMLElement;
+                  target.style.transform = 'translateY(-2px)';
+                  target.style.boxShadow = `0 6px 20px 0 ${project.color}50`;
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.transform = 'translateY(0)';
-                  e.target.style.boxShadow = `0 4px 14px 0 ${project.color}40`;
+                  const target = e.target as HTMLElement;
+                  target.style.transform = 'translateY(0)';
+                  target.style.boxShadow = `0 4px 14px 0 ${project.color}40`;
                 }}
               >
                 Explore Project
@@ -316,51 +320,6 @@ const Projects = () => {
         </div>
       </section>
 
-      <style jsx>{`
-        @keyframes fadeInUp {
-          0% {
-            opacity: 0;
-            transform: translateY(40px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px) rotate(0deg);
-          }
-          33% {
-            transform: translateY(-20px) rotate(120deg);
-          }
-          66% {
-            transform: translateY(-10px) rotate(240deg);
-          }
-        }
-
-        .project-card {
-          opacity: 0;
-          transform: translateY(40px);
-        }
-
-        .project-card.visible {
-          animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-
-        .project-card:nth-child(1) { animation-delay: 0.1s; }
-        .project-card:nth-child(2) { animation-delay: 0.2s; }
-        .project-card:nth-child(3) { animation-delay: 0.3s; }
-        .project-card:nth-child(4) { animation-delay: 0.4s; }
-        .project-card:nth-child(5) { animation-delay: 0.5s; }
-
-        @media (max-width: 768px) {
-          .project-card {
-            margin: 0 0.5rem;
-          }
-        }
-      `}</style>
     </div>
   );
 };

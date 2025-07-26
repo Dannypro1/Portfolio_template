@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 
 const Skills = () => {
   const [animateProgress, setAnimateProgress] = useState(false);
@@ -85,14 +85,14 @@ const Skills = () => {
     }
   ];
 
-  const getSkillLevel = (level) => {
+  const getSkillLevel = (level:number) => {
     if (level >= 90) return 'Expert';
     if (level >= 80) return 'Advanced';
     if (level >= 70) return 'Intermediate';
     return 'Beginner';
   };
 
-  const getSkillLevelColor = (level) => {
+  const getSkillLevelColor = (level:number) => {
     if (level >= 90) return '#48bb78';
     if (level >= 80) return '#4299e1';
     if (level >= 70) return '#f6ad55';
@@ -310,39 +310,7 @@ const Skills = () => {
       </section>
 
       {/* Custom Styles */}
-      <style jsx>{`
-        @keyframes slideInUp {
-          from { 
-            opacity: 0; 
-            transform: translateY(30px); 
-          }
-          to { 
-            opacity: 1; 
-            transform: translateY(0); 
-          }
-        }
-        
-        .skill-item:hover .progress-container {
-          transform: scale(1.02);
-          transition: transform 0.2s ease;
-        }
-        
-        @media (max-width: 768px) {
-          .display-4 { font-size: 2.5rem !important; }
-          .skill-category { padding: 20px !important; }
-          .category-icon { width: 40px !important; height: 40px !important; font-size: 20px !important; }
-          .summary-card { padding: 30px 20px !important; }
-          .summary-stat h5 { font-size: 1.5rem !important; }
-        }
-        
-        @media (max-width: 576px) {
-          .display-4 { font-size: 2rem !important; }
-          .skill-category { padding: 15px !important; }
-          .skill-item { margin-bottom: 20px !important; }
-          .d-flex.justify-content-between { flex-direction: column !important; align-items: flex-start !important; }
-          .d-flex.align-items-center.me-2 { margin-bottom: 5px !important; }
-        }
-      `}</style>
+      
 
       {/* Bootstrap CSS CDN */}
       <link 

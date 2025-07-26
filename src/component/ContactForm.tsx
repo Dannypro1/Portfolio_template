@@ -3,7 +3,7 @@ import { Phone, Mail, Linkedin, Send, MapPin, MessageCircle, ExternalLink } from
 
 const Contact = () => {
   const [animateCards, setAnimateCards] = useState(false);
-  const [hoveredCard, setHoveredCard] = useState(null);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -324,12 +324,14 @@ const Contact = () => {
                       boxShadow: '0 4px 15px rgba(229, 62, 62, 0.3)'
                     }}
                     onMouseEnter={(e) => {
-                      e.target.style.transform = 'translateY(-2px)';
-                      e.target.style.boxShadow = '0 8px 25px rgba(229, 62, 62, 0.4)';
+                      const target = e.target as HTMLAnchorElement;
+                      target.style.transform = 'translateY(-2px)';
+                      target.style.boxShadow = '0 8px 25px rgba(229, 62, 62, 0.4)';
                     }}
                     onMouseLeave={(e) => {
-                      e.target.style.transform = 'translateY(0)';
-                      e.target.style.boxShadow = '0 4px 15px rgba(229, 62, 62, 0.3)';
+                      const target = e.target as HTMLAnchorElement;
+                      target.style.transform = 'translateY(0)';
+                      target.style.boxShadow = '0 4px 15px rgba(229, 62, 62, 0.3)';
                     }}
                   >
                     <Mail className="me-2" style={{ width: '18px', height: '18px' }} />
@@ -351,12 +353,14 @@ const Contact = () => {
                       boxShadow: '0 4px 15px rgba(37, 211, 102, 0.3)'
                     }}
                     onMouseEnter={(e) => {
-                      e.target.style.transform = 'translateY(-2px)';
-                      e.target.style.boxShadow = '0 8px 25px rgba(37, 211, 102, 0.4)';
+                      const target = e.target as HTMLAnchorElement;
+                      target.style.transform = 'translateY(-2px)';
+                      target.style.boxShadow = '0 8px 25px rgba(37, 211, 102, 0.4)';
                     }}
                     onMouseLeave={(e) => {
-                      e.target.style.transform = 'translateY(0)';
-                      e.target.style.boxShadow = '0 4px 15px rgba(37, 211, 102, 0.3)';
+                      const target = e.target as HTMLAnchorElement;
+                      target.style.transform = 'translateY(0)';
+                      target.style.boxShadow = '0 4px 15px rgba(37, 211, 102, 0.3)';
                     }}
                   >
                     <Phone className="me-2" style={{ width: '18px', height: '18px' }} />
@@ -370,81 +374,7 @@ const Contact = () => {
       </section>
 
       {/* Custom Styles */}
-      <style jsx>{`
-        @keyframes slideInUp {
-          from { 
-            opacity: 0; 
-            transform: translateY(40px) scale(0.95); 
-          }
-          to { 
-            opacity: 1; 
-            transform: translateY(0) scale(1); 
-          }
-        }
-        
-        @keyframes bounceIn {
-          0% { 
-            opacity: 0; 
-            transform: scale(0.3); 
-          }
-          50% { 
-            opacity: 1; 
-            transform: scale(1.05); 
-          }
-          70% { 
-            transform: scale(0.9); 
-          }
-          100% { 
-            opacity: 1; 
-            transform: scale(1); 
-          }
-        }
-        
-        @keyframes rotate {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        
-        .contact-card {
-          position: relative;
-          cursor: pointer;
-        }
-        
-        .contact-card::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          border-radius: 25px;
-          padding: 1px;
-          background: linear-gradient(135deg, transparent, rgba(255,255,255,0.1), transparent);
-          -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-          -webkit-mask-composite: exclude;
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-        
-        .contact-card:hover::before {
-          opacity: 1;
-        }
-        
-        @media (max-width: 768px) {
-          .display-4 { font-size: 2.5rem !important; }
-          .contact-card { padding: 20px !important; }
-          .contact-icon { width: 60px !important; height: 60px !important; }
-          .cta-section { padding: 30px 20px !important; }
-        }
-        
-        @media (max-width: 576px) {
-          .display-4 { font-size: 2rem !important; }
-          .contact-card { padding: 15px !important; }
-          .contact-icon { width: 50px !important; height: 50px !important; margin-right: 15px !important; }
-          .d-flex.flex-wrap.gap-3 { flex-direction: column !important; align-items: center !important; }
-          .btn { width: 200px !important; }
-        }
-      `}</style>
+      
 
       {/* Bootstrap CSS CDN */}
       <link 
