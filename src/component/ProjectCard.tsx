@@ -1,10 +1,54 @@
-import  { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Projects = () => {
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   useEffect(() => {
+    // Add CSS animations
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        33% { transform: translateY(-20px) rotate(120deg); }
+        66% { transform: translateY(10px) rotate(240deg); }
+      }
+      
+      .project-card {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .project-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      @keyframes slideInUp {
+        from {
+          transform: translateY(10px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      
+      .scroll-top-btn {
+        animation: slideInUp 0.3s ease-out;
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Handle scroll for both intersection observer and scroll-to-top button
+    // Handle scroll for intersection observer
+    const handleScroll = () => {
+      // No longer needed since showScrollTop is removed
+    };
+
+    window.addEventListener('scroll', handleScroll);
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -21,7 +65,9 @@ const Projects = () => {
     cards.forEach((card) => observer.observe(card));
 
     return () => {
+      window.removeEventListener('scroll', handleScroll);
       cards.forEach((card) => observer.unobserve(card));
+      document.head.removeChild(style);
     };
   }, []);
 
@@ -105,7 +151,7 @@ const Projects = () => {
               position: 'absolute',
               width: Math.random() * 4 + 2 + 'px',
               height: Math.random() * 4 + 2 + 'px',
-              backgroundColor: `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.3)`,
+              backgroundColor: `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.3)`,
               borderRadius: '50%',
               left: Math.random() * 100 + '%',
               top: Math.random() * 100 + '%',
@@ -213,7 +259,8 @@ const Projects = () => {
                 <div style={{
                   fontSize: '2.5rem',
                   marginRight: '1rem',
-                  filter: 'drop-shadow(0 0 8px rgba(255,255,255,0.3))'
+                  filter: 'drop-shadow(0 0 8px rgba(255,255,255,0.3))',
+                  userSelect: 'none'
                 }}>
                   {project.icon}
                 </div>
@@ -319,7 +366,6 @@ const Projects = () => {
           ))}
         </div>
       </section>
-
     </div>
   );
 };

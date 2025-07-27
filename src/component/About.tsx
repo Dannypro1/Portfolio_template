@@ -210,7 +210,7 @@ const About = () => {
                         boxShadow: 'inset 0 0 30px rgba(0,0,0,0.5)'
                       }}
                     >
-                      <img src="public/danny.jpg" alt="Profile" style={{ width: '95%', height: '95%',borderRadius: '100%', objectFit: 'cover' }} />
+                      <img src="/danny.jpg" alt="Profile" style={{ width: '95%', height: '95%',borderRadius: '100%', objectFit: 'cover' }} />
                     </div>
                   </div>
                   

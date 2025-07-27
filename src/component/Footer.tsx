@@ -93,7 +93,7 @@ const Footer = () => {
           <div className="col-lg-4 col-md-6 mb-4">
             <div className="mb-4">
               <h4 className="fw-bold mb-3 d-flex align-items-center">
-                <img src="/public/vite.svg" alt="Vite Logo" style={{ width: '30px', marginRight: '10px' }} />
+                <img src="/vite.svg" alt="Vite Logo" style={{ width: '30px', marginRight: '10px' }} />
                 <span style={{
                   background: 'linear-gradient(135deg, #e53e3e, #ff6b6b)',
                   WebkitBackgroundClip: 'text',
@@ -297,7 +297,7 @@ const Footer = () => {
                     animation: 'heartbeat 1.5s ease-in-out infinite' 
                   }}
                 >
-                  <img src="/public/vite.svg" alt="Vite Logo" style={{ width: '16px', verticalAlign: 'middle', marginLeft: '4px', marginRight: '4px' }} />
+                  <img src="/vite.svg" alt="Vite Logo" style={{ width: '16px', verticalAlign: 'middle', marginLeft: '4px', marginRight: '4px' }} />
                 </span>
                 {' '}--{' '}
                 <span style={{ color: '#4299e1' }}>Danny Pro</span>

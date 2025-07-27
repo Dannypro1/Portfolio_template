@@ -1,44 +1,53 @@
-import  { useState, useEffect } from 'react';
-
+import { useState, useEffect } from 'react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('about');
+  const [activeSection, setActiveSection] = useState('About');
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
+    // Get current page from URL to set active section
+    const currentPath = window.location.pathname;
+    const pathToSection = {
+      '/': 'About',
+      '/About': 'About',
+      '/Skill': 'Skills',
+      '/Experience': 'Experience',
+      '/ProjectCard': 'Projects',
+      '/contact': 'Contact'
+    };
+    setActiveSection(pathToSection[currentPath as keyof typeof pathToSection] || 'About');
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
- 
-
-
-
   const navItems = [
-    { id: 'About', label: 'About', icon: '👨‍💻' },
-    { id: 'Skills', label: 'Skills', icon: '🚀' },
-    { id: 'Experience', label: 'Experience', icon: '💼' },
-    { id: 'Projects', label: 'Projects', icon: '🎯' },
-    { id: 'contact', label: 'Contact', icon: '📧' }
+    { id: 'About', label: 'About', icon: '👨‍💻', path: '/' },
+    { id: 'Skills', label: 'Skills', icon: '🚀', path: '/Skill' },
+    { id: 'Experience', label: 'Experience', icon: '💼', path: '/Experience' },
+    { id: 'Projects', label: 'Projects', icon: '🎯', path: '/ProjectCard' },
+    { id: 'Contact', label: 'Contact', icon: '📧', path: '/contact' }
   ];
 
   interface HandleNavClick {
-    (sectionId: string): void;
+    (sectionId: string, path: string): void;
   }
 
-  const handleNavClick: HandleNavClick = (sectionId) => {
+  const handleNavClick: HandleNavClick = (sectionId, path) => {
     setActiveSection(sectionId);
     setIsMobileMenuOpen(false);
 
-    // Smooth scroll to section
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    // Navigate to the page
+    if (path !== window.location.pathname) {
+      window.location.href = path;
+    } else {
+      // If already on the page, scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -52,7 +61,6 @@ const Navbar = () => {
           borderBottom: isScrolled ? '1px solid rgba(255,255,255,0.1)' : 'none',
           transition: 'all 0.3s ease',
           zIndex: 1000,
-          
         }}
       >
         <div className="container">
@@ -79,14 +87,11 @@ const Navbar = () => {
               (target.style as CSSStyleDeclaration).webkitTextFillColor = 'white';
             }}
           >
-            <span className="me-2" style={{ fontSize: '1.8rem' }}>
-              <img src="public/vite.svg" alt="Flash Icon" style={{ width: '1.8rem', height: '1.8rem', marginRight: '0.5rem' }} />
-              </span>
-            DannyPro
+            <img src="/vite.svg" alt="Logo" className="me-2" style={{ paddingRight: '-20px', width: '30px', height: '30px' }} />
+            anny Pro
           </a>
 
           {/* Mobile Menu Toggle */}
-        
           <button
             className="navbar-toggler border-0"
             type="button"
@@ -155,7 +160,7 @@ const Navbar = () => {
                 <li key={item.id} className="nav-item mx-2">
                   <button
                     className="nav-link btn border-0 px-4 py-2 d-flex align-items-center"
-                    onClick={() => handleNavClick(item.id)}
+                    onClick={() => handleNavClick(item.id, item.path)}
                     style={{
                       background: activeSection === item.id 
                         ? 'linear-gradient(135deg, #e53e3e, #ff6b6b)' 
@@ -221,9 +226,20 @@ const Navbar = () => {
                 target.style.boxShadow = '0 4px 15px rgba(66, 153, 225, 0.3)';
                 target.style.background = 'linear-gradient(135deg, #4299e1, #63b3ed)';
               }}
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/cv.pdf'; // Update this path
+                link.download = 'DannyPro_CV.pdf';
+                link.click();
+              }}
             >
-              <a href='#' style={{textDecoration: 'none', color: 'white'}}><span className="me-2">📄</span>
-              Download CV</a>
+              <span className="me-2" onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/cv.pdf'; // Update this path
+                link.download = 'DannyPro_CV.pdf';
+                link.click();
+              }}>📄</span>
+              Download CV
             </button>
           </div>
         </div>
@@ -250,7 +266,7 @@ const Navbar = () => {
                 <li key={item.id} className="mb-2">
                   <button
                     className="btn w-100 text-start px-3 py-3 d-flex align-items-center"
-                    onClick={() => handleNavClick(item.id)}
+                    onClick={() => handleNavClick(item.id, item.path)}
                     style={{
                       background: activeSection === item.id 
                         ? 'rgba(229, 62, 62, 0.2)' 
@@ -273,6 +289,13 @@ const Navbar = () => {
               <li className="mt-3">
                 <button
                   className="btn w-100 px-3 py-3 fw-semibold d-flex align-items-center justify-content-center"
+                  onClick={() => {
+                    // Replace with your actual CV file path
+                    const link = document.createElement('a');
+                    link.href = '/path/to/your/cv.pdf'; // Update this path
+                    link.download = 'DannyPro_CV.pdf';
+                    link.click();
+                  }}
                   style={{
                     background: 'linear-gradient(135deg, #4299e1, #63b3ed)',
                     color: 'white',
@@ -285,8 +308,8 @@ const Navbar = () => {
                     transitionDelay: `${navItems.length * 0.1}s`
                   }}
                 >
-                  <a href='#' style={{textDecoration: 'none', color: 'white'}}><span className="me-2">📄</span>
-                  Download CV</a>
+                  <span className="me-2">📄</span>
+                  Download CV
                 </button>
               </li>
             </ul>
@@ -296,8 +319,6 @@ const Navbar = () => {
 
       {/* Spacer to prevent content from hiding behind fixed navbar */}
       <div style={{ height: '80px' }}></div>
-
-      
 
       {/* Bootstrap CSS CDN */}
       <link 
