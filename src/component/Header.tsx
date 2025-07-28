@@ -14,11 +14,11 @@ const Navbar = () => {
     const currentPath = window.location.pathname;
     const pathToSection = {
       '/': 'About',
-      '/About': 'About',
-      '/Skill': 'Skills',
-      '/Experience': 'Experience',
-      '/ProjectCard': 'Projects',
-      '/contact': 'Contact'
+      '/about': 'about',
+      '/skills': 'skills',
+      '/experience': 'experience',
+      '/projects': 'projects',
+      '/contact': 'contact'
     };
     setActiveSection(pathToSection[currentPath as keyof typeof pathToSection] || 'About');
 
@@ -27,24 +27,24 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { id: 'About', label: 'About', icon: '👨‍💻', path: '/' },
-    { id: 'Skills', label: 'Skills', icon: '🚀', path: '/Skill' },
-    { id: 'Experience', label: 'Experience', icon: '💼', path: '/Experience' },
-    { id: 'Projects', label: 'Projects', icon: '🎯', path: '/ProjectCard' },
-    { id: 'Contact', label: 'Contact', icon: '📧', path: '/contact' }
+    { id: 'about', label: 'About', icon: '👨‍💻', path: '#about' },
+    { id: 'skills', label: 'Skills', icon: '🚀', path: '#skills' },
+    { id: 'experience', label: 'Experience', icon: '💼', path: '#experience' },
+    { id: 'projects', label: 'Projects', icon: '🎯', path: '#projects' },
+    { id: 'contact', label: 'Contact', icon: '📧', path: '#contact' }
   ];
 
   interface HandleNavClick {
-    (sectionId: string, path: string): void;
+    (sectionId: string): void;
   }
 
-  const handleNavClick: HandleNavClick = (sectionId, path) => {
+  const handleNavClick: HandleNavClick = (sectionId) => {
     setActiveSection(sectionId);
     setIsMobileMenuOpen(false);
 
     // Navigate to the page
-    if (path !== window.location.pathname) {
-      window.location.href = path;
+    if (sectionId !== window.location.pathname) {
+      window.location.href = sectionId;
     } else {
       // If already on the page, scroll to top
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -160,7 +160,7 @@ const Navbar = () => {
                 <li key={item.id} className="nav-item mx-2">
                   <button
                     className="nav-link btn border-0 px-4 py-2 d-flex align-items-center"
-                    onClick={() => handleNavClick(item.id, item.path)}
+                    onClick={() => handleNavClick(item.id)}
                     style={{
                       background: activeSection === item.id 
                         ? 'linear-gradient(135deg, #e53e3e, #ff6b6b)' 
@@ -266,7 +266,7 @@ const Navbar = () => {
                 <li key={item.id} className="mb-2">
                   <button
                     className="btn w-100 text-start px-3 py-3 d-flex align-items-center"
-                    onClick={() => handleNavClick(item.id, item.path)}
+                    onClick={() => handleNavClick(item.id)}
                     style={{
                       background: activeSection === item.id 
                         ? 'rgba(229, 62, 62, 0.2)' 

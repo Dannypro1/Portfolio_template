@@ -143,7 +143,7 @@ const Experience = () => {
         zIndex: -1
       }} />
 
-      <section className="container py-5">
+      <section id="experience" className="container py-5">
         {/* Header */}
         <div className="text-center mb-5">
           <h2 className="display-4 fw-bold mb-4" style={{ 
