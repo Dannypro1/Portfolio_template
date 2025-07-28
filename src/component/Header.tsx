@@ -294,7 +294,7 @@ const Navbar = () => {
                 <button
                   className="btn w-100 px-3 py-3 fw-semibold d-flex align-items-center justify-content-center"
                   onClick={() => {
-                    // Replace with your actual CV file path
+                    
                     const link = document.createElement('a');
                     link.href = '/cv.pdf'; // Update this path
                     link.download = 'DannyPro_CV.pdf';

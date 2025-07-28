@@ -5,7 +5,6 @@ const Projects = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   useEffect(() => {
-    // Add CSS animations
     const style = document.createElement('style');
     style.textContent = `
       @keyframes float {
@@ -13,18 +12,18 @@ const Projects = () => {
         33% { transform: translateY(-20px) rotate(120deg); }
         66% { transform: translateY(10px) rotate(240deg); }
       }
-      
+
       .project-card {
         opacity: 0;
         transform: translateY(30px);
         transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
       }
-      
+
       .project-card.visible {
         opacity: 1;
         transform: translateY(0);
       }
-      
+
       @keyframes slideInUp {
         from {
           transform: translateY(10px);
@@ -35,20 +34,13 @@ const Projects = () => {
           opacity: 1;
         }
       }
-      
+
       .scroll-top-btn {
         animation: slideInUp 0.3s ease-out;
       }
     `;
     document.head.appendChild(style);
 
-    // Handle scroll for both intersection observer and scroll-to-top button
-    // Handle scroll for intersection observer
-    const handleScroll = () => {
-      // No longer needed since showScrollTop is removed
-    };
-
-    window.addEventListener('scroll', handleScroll);
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -65,7 +57,6 @@ const Projects = () => {
     cards.forEach((card) => observer.observe(card));
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
       cards.forEach((card) => observer.unobserve(card));
       document.head.removeChild(style);
     };
@@ -82,23 +73,23 @@ const Projects = () => {
       icon: '🚗',
     },
     {
-     title: 'CertChain',
-     description: 'A secure blockchain-based certification system designed to verify, issue, and manage digital certificates with full transparency and immutability.',
-     tech: ['Node.js', 'React', 'MongoDB', 'Solidity', 'Tailwind'],
-     link: 'https://github.com/dannypro1',
-     color: '#805ad5',
-     gradient: 'linear-gradient(135deg, #805ad5, #9f7aea)',
-     icon: '🔗'
+      title: 'CertChain',
+      description: 'A secure blockchain-based certification system designed to verify, issue, and manage digital certificates with full transparency and immutability.',
+      tech: ['Node.js', 'React', 'MongoDB', 'Solidity', 'Tailwind'],
+      link: 'https://github.com/dannypro1',
+      color: '#805ad5',
+      gradient: 'linear-gradient(135deg, #805ad5, #9f7aea)',
+      icon: '🔗'
     },
     {
-        title: 'AgriChain',
-        description: 'A smart agriculture supply chain platform that ensures transparency, traceability, and efficiency from farm to market using modern digital tools.',
-        tech: ['Flask', 'MySQL', 'Bootstrap'],
-        link: 'https://github.com/dannypro1',
-        color: '#38a169',
-        gradient: 'linear-gradient(135deg, #38a169, #68d391)',
-        icon: '🌾'
-      },
+      title: 'AgriChain',
+      description: 'A smart agriculture supply chain platform that ensures transparency, traceability, and efficiency from farm to market using modern digital tools.',
+      tech: ['Flask', 'MySQL', 'Bootstrap'],
+      link: 'https://github.com/dannypro1',
+      color: '#38a169',
+      gradient: 'linear-gradient(135deg, #38a169, #68d391)',
+      icon: '🌾'
+    },
     {
       title: 'Events Management System',
       description: 'Sophisticated platform for academic and social events featuring role-based access, intelligent booking systems, and real-time notifications.',
@@ -108,32 +99,27 @@ const Projects = () => {
       gradient: 'linear-gradient(135deg, #9f7aea, #b794f6)',
       icon: '🎭',
     },
-   {
-    title: 'Portfolio Platform',
-    description: 'Personal portfolio platform showcasing professional experience, featured projects, skills, and contact information with responsive and modern UI.',
-    tech: ['React', 'Tailwind CSS','bootstrap', 'Framer Motion', 'Node.js'],
-    link: 'https://dannypro1.com',
-    color: '#f6ad55',
-    gradient: 'linear-gradient(135deg, #f6ad55, #fbb775)',
-    icon: '💼',
-}
-
+    {
+      title: 'Portfolio Platform',
+      description: 'Personal portfolio platform showcasing professional experience, featured projects, skills, and contact information with responsive and modern UI.',
+      tech: ['React', 'Tailwind CSS','bootstrap', 'Framer Motion', 'Node.js'],
+      link: 'https://dannypro1.com',
+      color: '#f6ad55',
+      gradient: 'linear-gradient(135deg, #f6ad55, #fbb775)',
+      icon: '💼',
+    }
   ];
 
   return (
-    <div style={{ 
-      backgroundColor: '#0a0a0a', 
+    <div style={{
+      backgroundColor: '#0a0a0a',
       minHeight: '100vh',
       position: 'relative',
       overflow: 'hidden'
     }}>
-      {/* Animated Background Elements */}
       <div style={{
         position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
+        top: 0, left: 0, right: 0, bottom: 0,
         background: `
           radial-gradient(circle at 20% 80%, rgba(66, 153, 225, 0.1) 0%, transparent 50%),
           radial-gradient(circle at 80% 20%, rgba(72, 187, 120, 0.1) 0%, transparent 50%),
@@ -141,35 +127,30 @@ const Projects = () => {
         `,
         zIndex: 0
       }} />
-      
-      {/* Floating Particles */}
+
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 1 }}>
         {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            style={{
-              position: 'absolute',
-              width: Math.random() * 4 + 2 + 'px',
-              height: Math.random() * 4 + 2 + 'px',
-              backgroundColor: `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.3)`,
-              borderRadius: '50%',
-              left: Math.random() * 100 + '%',
-              top: Math.random() * 100 + '%',
-              animation: `float ${Math.random() * 10 + 10}s linear infinite`,
-              animationDelay: Math.random() * 10 + 's'
-            }}
-          />
+          <div key={i} style={{
+            position: 'absolute',
+            width: Math.random() * 4 + 2 + 'px',
+            height: Math.random() * 4 + 2 + 'px',
+            backgroundColor: `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.3)`,
+            borderRadius: '50%',
+            left: Math.random() * 100 + '%',
+            top: Math.random() * 100 + '%',
+            animation: `float ${Math.random() * 10 + 10}s linear infinite`,
+            animationDelay: Math.random() * 10 + 's'
+          }} />
         ))}
       </div>
 
-      <section id="project" style={{ 
-        position: 'relative', 
-        zIndex: 2, 
-        padding: '4rem 2rem',
+      <section id="project" style={{
+        position: 'relative',
+        zIndex: 2,
+        padding: 'clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 2rem)',
         maxWidth: '1400px',
         margin: '0 auto'
       }}>
-        {/* Header Section */}
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <div style={{
             display: 'inline-block',
@@ -185,9 +166,9 @@ const Projects = () => {
           }}>
             ✨ PORTFOLIO SHOWCASE
           </div>
-          
+
           <h1 style={{
-            fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+            fontSize: 'clamp(2rem, 6vw, 4rem)',
             fontWeight: '800',
             background: 'linear-gradient(135deg, #4299e1 0%, #48bb78 50%, #9f7aea 100%)',
             WebkitBackgroundClip: 'text',
@@ -198,12 +179,12 @@ const Projects = () => {
           }}>
             Featured Projects
           </h1>
-          
-          <p style={{ 
-            color: '#a0aec0', 
-            maxWidth: '600px', 
+
+          <p style={{
+            color: '#a0aec0',
+            maxWidth: '600px',
             margin: '0 auto',
-            fontSize: '1.125rem',
+            fontSize: 'clamp(0.95rem, 2.5vw, 1.125rem)',
             lineHeight: '1.7',
             fontWeight: '400'
           }}>
@@ -211,11 +192,10 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* Projects Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))',
-          gap: '2rem',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
+          gap: 'clamp(1rem, 2.5vw, 2rem)',
           padding: '0 1rem'
         }}>
           {projects.map((project, index) => (
@@ -226,9 +206,11 @@ const Projects = () => {
               onMouseEnter={() => setHoveredCard(index)}
               onMouseLeave={() => setHoveredCard(null)}
               style={{
+                width: '100%',
+                maxWidth: '100%',
                 background: 'rgba(26, 32, 44, 0.4)',
                 backdropFilter: 'blur(20px)',
-                border: hoveredCard === index 
+                border: hoveredCard === index
                   ? `2px solid ${project.color}40`
                   : '1px solid rgba(255,255,255,0.08)',
                 borderRadius: '24px',
@@ -236,25 +218,21 @@ const Projects = () => {
                 position: 'relative',
                 transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                 transform: hoveredCard === index ? 'translateY(-8px) scale(1.02)' : 'translateY(0) scale(1)',
-                boxShadow: hoveredCard === index 
+                boxShadow: hoveredCard === index
                   ? `0 25px 50px -12px ${project.color}30, 0 0 0 1px ${project.color}20`
                   : '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
                 overflow: 'hidden'
               }}
             >
-              {/* Gradient Overlay */}
               <div style={{
                 position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
+                top: 0, left: 0, right: 0,
                 height: '4px',
                 background: project.gradient,
                 opacity: hoveredCard === index ? 1 : 0.7,
                 transition: 'opacity 0.3s ease'
               }} />
 
-              {/* Icon and Title */}
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
                 <div style={{
                   fontSize: '2.5rem',
@@ -264,9 +242,9 @@ const Projects = () => {
                 }}>
                   {project.icon}
                 </div>
-                <h3 style={{ 
+                <h3 style={{
                   color: project.color,
-                  fontSize: '1.5rem',
+                  fontSize: 'clamp(1.25rem, 4vw, 1.5rem)',
                   fontWeight: '700',
                   margin: 0,
                   letterSpacing: '-0.025em'
@@ -275,10 +253,9 @@ const Projects = () => {
                 </h3>
               </div>
 
-              {/* Description */}
-              <p style={{ 
-                color: '#e2e8f0', 
-                fontSize: '1rem',
+              <p style={{
+                color: '#e2e8f0',
+                fontSize: 'clamp(0.9rem, 2vw, 1rem)',
                 lineHeight: '1.7',
                 marginBottom: '1.5rem',
                 fontWeight: '400'
@@ -286,16 +263,15 @@ const Projects = () => {
                 {project.description}
               </p>
 
-              {/* Tech Stack */}
-              <div style={{ 
-                display: 'flex', 
-                flexWrap: 'wrap', 
-                gap: '0.75rem', 
-                marginBottom: '2rem' 
+              <div style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '0.75rem',
+                marginBottom: '2rem'
               }}>
                 {project.tech.map((tech, idx) => (
-                  <span 
-                    key={idx} 
+                  <span
+                    key={idx}
                     style={{
                       backgroundColor: 'rgba(255,255,255,0.05)',
                       color: '#cbd5e0',
@@ -327,10 +303,9 @@ const Projects = () => {
                 ))}
               </div>
 
-              {/* CTA Button */}
-              <a 
-                href={project.link} 
-                target="_blank" 
+              <a
+                href={project.link}
+                target="_blank"
                 rel="noopener noreferrer"
                 style={{
                   display: 'inline-flex',
@@ -338,7 +313,7 @@ const Projects = () => {
                   gap: '0.5rem',
                   background: project.gradient,
                   color: 'white',
-                  padding: '0.875rem 1.5rem',
+                  padding: 'clamp(0.5rem, 2vw, 0.875rem) clamp(1rem, 4vw, 1.5rem)',
                   borderRadius: '12px',
                   textDecoration: 'none',
                   fontSize: '0.95rem',

@@ -322,7 +322,7 @@ const Footer = () => {
             fontSize: '20px',
             boxShadow: '0 4px 15px rgba(229, 62, 62, 0.3)',
             transition: 'all 0.3s ease',
-            zIndex: 1000
+            zIndex: 3000
           }}
           onMouseEnter={(e) => {
             const target = e.target as HTMLElement;
@@ -340,14 +340,14 @@ const Footer = () => {
       </div>
 
       {/* Custom Styles */}
-      
-
+      <div style={{ height: '80px', minHeight: '80px', width: '100%' }}></div>
       {/* Bootstrap CSS CDN */}
       <link 
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" 
         rel="stylesheet" 
       />
     </footer>
+   
   );
 };
 
