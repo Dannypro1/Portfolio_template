@@ -43,11 +43,11 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { name: 'About', href: '#About' },
-    { name: 'Skills', href: '#Skills' },
-    { name: 'Experience', href: '#Experience' },
-    { name: 'Projects', href: '#Projects' },
-    { name: 'Contact', href: '#Contact' }
+    { name: 'About', href: '#about' },
+    { name: 'Skills', href: '#skill' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Contact', href: '#contact' }
   ];
 
   const handleQuickLinkClick = (href: string) => {

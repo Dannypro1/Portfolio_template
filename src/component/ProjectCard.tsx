@@ -162,7 +162,7 @@ const Projects = () => {
         ))}
       </div>
 
-      <section style={{ 
+      <section id="project" style={{ 
         position: 'relative', 
         zIndex: 2, 
         padding: '4rem 2rem',

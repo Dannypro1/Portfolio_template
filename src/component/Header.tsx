@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import type { href } from 'react-router';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,28 +28,32 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { id: 'about', label: 'About', icon: '👨‍💻', path: '#about' },
-    { id: 'skills', label: 'Skills', icon: '🚀', path: '#skills' },
-    { id: 'experience', label: 'Experience', icon: '💼', path: '#experience' },
-    { id: 'projects', label: 'Projects', icon: '🎯', path: '#projects' },
-    { id: 'contact', label: 'Contact', icon: '📧', path: '#contact' }
+    { href: '#about', label: 'About', icon: '👨‍💻', path: '#about' },
+    { href: '#skill', label: 'Skills', icon: '🚀', path: '#skills' },
+    { href: '#experience', label: 'Experience', icon: '💼', path: '#experience' },
+    { href: '#project', label: 'Projects', icon: '🎯', path: '#projects' },
+    { href: '#contact', label: 'Contact', icon: '📧', path: '#contact' }
   ];
 
   interface HandleNavClick {
-    (sectionId: string): void;
+    (href: string): void;
   }
 
-  const handleNavClick: HandleNavClick = (sectionId) => {
-    setActiveSection(sectionId);
+  const handleNavClick: HandleNavClick = (href) => {
+    const element = document.querySelector(href);
+    setActiveSection(href);
     setIsMobileMenuOpen(false);
+    if (element) {
+      // Smooth scroll to the section
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    else{
+      // If the section does not exist, navigate to the href directly
+      const sectionId = href.startsWith('#') ? href : `#${href}`;
+      window.location.href = sectionId;
+    }
 
     // Navigate to the page
-    if (sectionId !== window.location.pathname) {
-      window.location.href = sectionId;
-    } else {
-      // If already on the page, scroll to top
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
   };
 
   return (
@@ -157,12 +162,12 @@ const Navbar = () => {
           <div className="navbar-collapse justify-content-center d-none d-lg-flex">
             <ul className="navbar-nav">
               {navItems.map((item) => (
-                <li key={item.id} className="nav-item mx-2">
+                <li key={item.label} className="nav-item mx-2">
                   <button
                     className="nav-link btn border-0 px-4 py-2 d-flex align-items-center"
-                    onClick={() => handleNavClick(item.id)}
+                    onClick={() => handleNavClick(item.href)}
                     style={{
-                      background: activeSection === item.id 
+                      background: activeSection === item.href 
                         ? 'linear-gradient(135deg, #e53e3e, #ff6b6b)' 
                         : 'transparent',
                       color: 'white',
@@ -170,14 +175,14 @@ const Navbar = () => {
                       transition: 'all 0.3s ease',
                       fontSize: '14px',
                       fontWeight: '500',
-                      border: activeSection === item.id 
+                      border: activeSection === item.href 
                         ? 'none' 
                         : '1px solid rgba(255,255,255,0.1)',
                       position: 'relative',
                       overflow: 'hidden'
                     }}
                     onMouseEnter={(e) => {
-                      if (activeSection !== item.id) {
+                      if (activeSection !== item.href) {
                         const target = e.target as HTMLElement;
                         target.style.background = 'rgba(229, 62, 62, 0.2)';
                         target.style.borderColor = '#e53e3e';
@@ -185,7 +190,7 @@ const Navbar = () => {
                       }
                     }}
                     onMouseLeave={(e) => {
-                      if (activeSection !== item.id) {
+                      if (activeSection !== item.href) {
                         const target = e.target as HTMLElement;
                         target.style.background = 'transparent';
                         target.style.borderColor = 'rgba(255,255,255,0.1)';
@@ -263,12 +268,12 @@ const Navbar = () => {
           <div className="container py-3">
             <ul className="list-unstyled mb-0">
               {navItems.map((item, index) => (
-                <li key={item.id} className="mb-2">
+                <li key={item.label} className="mb-2">
                   <button
                     className="btn w-100 text-start px-3 py-3 d-flex align-items-center"
-                    onClick={() => handleNavClick(item.id)}
+                    onClick={() => handleNavClick(item.href)}
                     style={{
-                      background: activeSection === item.id 
+                      background: activeSection === item.href 
                         ? 'rgba(229, 62, 62, 0.2)' 
                         : 'transparent',
                       color: 'white',
@@ -292,7 +297,7 @@ const Navbar = () => {
                   onClick={() => {
                     // Replace with your actual CV file path
                     const link = document.createElement('a');
-                    link.href = '/path/to/your/cv.pdf'; // Update this path
+                    link.href = '/cv.pdf'; // Update this path
                     link.download = 'DannyPro_CV.pdf';
                     link.click();
                   }}
