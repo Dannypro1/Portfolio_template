@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import type { href } from 'react-router';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
