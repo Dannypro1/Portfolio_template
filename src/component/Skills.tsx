@@ -4,6 +4,9 @@ const Skills = () => {
   const [animateProgress, setAnimateProgress] = useState(false);
 
   useEffect(() => {
+    const timer = setTimeout(() => {
+      setAnimateProgress(true);
+    }, 1000); // Start animation after 1 second
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -18,6 +21,7 @@ const Skills = () => {
     }
 
     return () => {
+      clearTimeout(timer);
       if (skillsSection) observer.unobserve(skillsSection);
     };
   }, []);
@@ -208,7 +212,7 @@ const Skills = () => {
                         </div>
                         <div className="d-flex align-items-center">
                           <span 
-                            className="badge me-2"
+                            className="badge me-3"
                             style={{
                               backgroundColor: `${getSkillLevelColor(skill.level)}20`,
                               color: getSkillLevelColor(skill.level),
