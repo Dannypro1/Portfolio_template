@@ -3,7 +3,7 @@ const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
   '/styles.css',
-  '/main.js',
+  '/src/main.tsx',
   // add images, fonts, and any static assets
 ];
 

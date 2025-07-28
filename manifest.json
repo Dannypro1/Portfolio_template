@@ -1,5 +1,5 @@
 {
-  "name": "Portfolio_template",
+  "name": "Danny's Portfolio",
   "short_name": "Portfolio",
   "start_url": ".",
   "display": "standalone",
@@ -13,7 +13,7 @@
     },
     {
       "src": "/vite.svg",
-      "sizes": "200x200",
+      "sizes": "100x100",
       "type": "image/svg+xml"
     }
   ]
