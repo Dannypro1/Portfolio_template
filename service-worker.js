@@ -1,9 +1,9 @@
 const CACHE_NAME = 'portfolio_template_v1';
 const ASSETS_TO_CACHE = [
-  '/',
   '/index.html',
   '/styles.css',
   '/src/main.tsx',
+  '/public/vite.svg',
   // add images, fonts, and any static assets
 ];
 
@@ -17,7 +17,7 @@ self.addEventListener('install', event => {
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request).then(response => {
-      return response || fetch(event.request).catch(() => caches.match("/index.html"));
+      return response || fetch(event.request);
     })
   );
 });
