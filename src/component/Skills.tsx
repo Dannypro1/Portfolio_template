@@ -58,18 +58,18 @@ const Skills = () => {
       ]
     },
     {
-      title: 'DevOps & Tools',
+      title: 'DevOps & Penetration Testing',
       color: '#48bb78',
       icon: '🛠️',
       skills: [
         { name: 'Git/GitHub', level: 95, icon: '📝' },
         { name: 'Docker', level: 80, icon: '🐳' },
-        { name: 'AWS', level: 75, icon: '☁️' },
+        { name: 'Metasploit', level: 80, icon: '☁️' },
         { name: 'CI/CD', level: 78, icon: '🔄' },
         { name: 'Linux', level: 90, icon: '🐧' },
         { name: 'Webpack', level: 85, icon: '📦' },
-        { name: 'Jest/Testing', level: 88, icon: '🧪' },
-        { name: 'Firebase', level: 80, icon: '🔥' }
+        { name: 'AWS', level: 88, icon: '🧪' },
+        { name: 'Ubuntu Server', level: 80, icon: '🔥' }
       ]
     },
     {
@@ -79,11 +79,11 @@ const Skills = () => {
       skills: [
         { name: 'Figma', level: 85, icon: '🎨' },
         { name: 'Adobe XD', level: 78, icon: '🖌️' },
-        { name: 'Photoshop', level: 90, icon: '📸' },
+        { name: 'Adobe Photoshop', level: 90, icon: '📸' },
         { name: 'Responsive Design', level: 82, icon: '📱' },
-        { name: 'User Research', level: 70, icon: '🔍' },
+        { name: 'Adobe Illustrator', level: 91, icon: '🍫' },
         { name: 'Prototyping', level: 80, icon: '⚡' },
-        { name: 'Wireframing', level: 82, icon: '📐' },
+        { name: 'Adobe After Effects', level: 82, icon: '📐' },
         { name: 'Design Systems', level: 78, icon: '🧩' }
       ]
     }

@@ -396,16 +396,27 @@ const About = () => {
                       borderRadius: '15px',
                       border: '1px solid rgba(255,255,255,0.1)',
                       backdropFilter: 'blur(10px)',
-                      boxShadow: `0 4px 8px rgba(200, 3, 3, 0.19)`
+                      transition: 'all 0.3s ease',
+                      animation: `slideInUp ${0.5 + index * 0.1}s ease-out`
                     }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-5px)';
+                      e.currentTarget.style.borderColor = '#00b227ff';
+                      e.currentTarget.style.boxShadow = `0 2px 20px #00b227ff`;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
+                      e.currentTarget.style.boxShadow = 'none';
+                   }}
                   >
                     <div className="d-flex justify-content-between align-items-start mb-2">
                       <h6 className="fw-bold mb-0" style={{ color: 'white' }}>{edu.degree}</h6>
                       <span 
                         className="badge"
                         style={{ 
-                          backgroundColor: 'rgba(229, 62, 62, 0.2)',
-                          color: '#e53e3e',
+                          backgroundColor: 'rgba(62, 229, 82, 0.2)',
+                          color: '#00b227ff',
                           fontSize: '12px'
                         }}
                       >
@@ -434,8 +445,19 @@ const About = () => {
                       borderRadius: '15px',
                       border: '1px solid rgba(255,255,255,0.1)',
                       backdropFilter: 'blur(10px)',
-                      boxShadow: `0 4px 5px rgba(58, 132, 193, 0.23)`
+                      transition: 'all 0.3s ease',
+                      animation: `slideInUp ${0.5 + index * 0.1}s ease-out`
                     }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-5px)';
+                      e.currentTarget.style.borderColor = '#48a6ffff';
+                      e.currentTarget.style.boxShadow = `0 2px 20px #48a6ffff`;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
+                      e.currentTarget.style.boxShadow = 'none';
+                   }}
                   >
                     <div className="d-flex justify-content-between align-items-start mb-2">
                       <h6 className="fw-bold mb-0" style={{ color: 'white' }}>{exp.role}</h6>
