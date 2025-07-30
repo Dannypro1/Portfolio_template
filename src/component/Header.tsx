@@ -239,7 +239,7 @@ const Navbar = () => {
             >
               <span className="me-2" onClick={() => {
                 const link = document.createElement('a');
-                link.href = '/cv.pdf'; // Update this path
+                link.href = '/cv1.pdf'; // Update this path
                 link.download = 'DannyPro_CV.pdf';
                 link.click();
               }}>📄</span>
