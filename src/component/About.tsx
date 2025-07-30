@@ -396,7 +396,7 @@ const About = () => {
                       borderRadius: '15px',
                       border: '1px solid rgba(255,255,255,0.1)',
                       backdropFilter: 'blur(10px)',
-                      borderLeft: `4px solid #e53e3e`
+                      boxShadow: `0 4px 8px rgba(200, 3, 3, 0.19)`
                     }}
                   >
                     <div className="d-flex justify-content-between align-items-start mb-2">
@@ -434,7 +434,7 @@ const About = () => {
                       borderRadius: '15px',
                       border: '1px solid rgba(255,255,255,0.1)',
                       backdropFilter: 'blur(10px)',
-                      borderLeft: `4px solid #4299e1`
+                      boxShadow: `0 4px 5px rgba(58, 132, 193, 0.23)`
                     }}
                   >
                     <div className="d-flex justify-content-between align-items-start mb-2">
