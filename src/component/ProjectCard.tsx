@@ -67,7 +67,7 @@ const Projects = () => {
       title: 'Car Everywhere',
       description: 'A comprehensive car rental platform featuring identity verification, seamless payment processing, and real-time communication for short-term rentals.',
       tech: ['Node.js', 'React', 'PostgreSQL', 'Express', 'JWT', 'Docker'],
-      link: 'https://car-e-sigma.vercel.app/vehicles',
+      link: 'https://car-e-sigma.vercel.app/',
       color: '#e53e3e',
       gradient: 'linear-gradient(135deg, #e53e3e, #fc8181)',
       icon: '🚗',
