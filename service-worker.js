@@ -1,7 +1,7 @@
 const CACHE_NAME = 'portfolio_template_v1';
 const ASSETS_TO_CACHE = [
-  'index.html',
-  'styles.css',
+  '/index.html',
+  '/styles.css',
   '/src/main.tsx',
   '/vite.svg',
   // add images, fonts, and any static assets
