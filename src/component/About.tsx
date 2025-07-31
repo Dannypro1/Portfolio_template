@@ -100,23 +100,27 @@ const About = () => {
           <div className="row align-items-center py-5">
             <div className="col-lg-6 col-md-12 order-2 order-lg-1">
               <div className="about-content" style={{ animation: 'slideInLeft 1s ease-out' }}>
-                <h1 className="display-2 fw-bold mb-4 lh-1">
-                  <span style={{ 
+                <h1 className="display-2 fw-bold mb-4 lh-1 " style={{ color: 'linear-gradient(135deg, #3ecfe5ff, #ff6b6b)' }}>
+                  <span style={{
                     display: 'block',
                     background: 'linear-gradient(135deg, #e53e3e, #ff6b6b)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text'
+                    backgroundClip: 'text',
+                    
                   }}>
-                    About Me
+                    Welcome to My Portfolio
                   </span>
                 </h1>
                 
-                <h2 className="h3 mb-4" style={{ color: '#cbd5e0' }}>
-                  HATEGEKIMANA Danny - Software Developer & Ethical Hacker - penetester
+                <h2 className="h3 mb-4" style={{color: '#cbd5e0' }}>
+                  HATEGEKIMANA Danny -  penetester & Ethical Hacker - Software Developer
                 </h2>
                 
                 <div className="mb-4" style={{ color: '#a0aec0', lineHeight: '1.8', fontSize: '16px' }}>
+                  <h4 className="mb-3" style={{ color: '#e53e3e', fontSize: '18px', fontWeight: 'bold' }}>
+                    About Me
+                  </h4>
                   <p className="mb-3">
                     I began my journey into software through photography..a craft that taught me to appreciate storytelling, 
                     detail, and visual balance. That creative foundation naturally evolved into a passion for building bold digital experiences. 
