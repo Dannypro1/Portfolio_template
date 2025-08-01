@@ -51,7 +51,7 @@ const About = () => {
   const services = [
     { icon: '💻', title: 'Website and System Development', color: '#e53e3e', desc: 'Custom web solutions with modern frameworks' },
     { icon: '🔐', title: 'Penetration Testing', color: '#4299e1', desc: 'Vulnerability testing of systems' },
-    { icon: '☁️', title: 'Website Hosting', color: '#48bb78', desc: 'Reliable cloud hosting solutions' },
+    { icon: '🍫', title: 'Graphic design', color: '#48bb78', desc: 'Posters , logo, infographic & social media posters' },
     { icon: '🎨', title: 'UI/UX Design', color: '#9f7aea', desc: 'User-centered design experiences' },
     { icon: '⚡', title: 'Performance Optimization', color: '#f6ad55', desc: 'Speed and efficiency improvements' },
     { icon: '🔧', title: 'Maintenance & Support', color: '#38b2ac', desc: '24/7 technical support and updates' }
