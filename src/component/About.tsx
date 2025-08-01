@@ -114,7 +114,7 @@ const About = () => {
                 </h1>
                 
                 <h2 className="h3 mb-4" style={{color: '#cbd5e0' }}>
-                  HATEGEKIMANA Danny -  penetester & Ethical Hacker - Software Developer
+                  HATEGEKIMANA Danny -Graphic designer - penetester & Ethical Hacker - Software Developer
                 </h2>
                 
                 <div className="mb-4" style={{ color: '#a0aec0', lineHeight: '1.8', fontSize: '16px' }}>
