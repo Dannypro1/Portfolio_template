@@ -58,7 +58,7 @@ const WhatsAppButton = () => {
       `}</style>
 
       <a
-        href="https://wa.me/250788123456" // Replace with your WhatsApp number
+        href="https://wa.me/250790951505" // Replace with your WhatsApp number
         target="_blank"
         rel="noopener noreferrer"
         className={`whatsapp-btn ${isPulse ? 'pulse' : ''}`}
