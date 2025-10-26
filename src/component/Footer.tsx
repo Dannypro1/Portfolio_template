@@ -307,7 +307,7 @@ const Footer = () => {
         </div>
 
         {/* Back to Top Button */}
-        <button
+        {/* <button
           className="back-to-top btn position-fixed"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           style={{
@@ -336,7 +336,7 @@ const Footer = () => {
           }}
         >
           ↑
-        </button>
+        </button> */}
       </div>
 
       {/* Custom Styles */}
