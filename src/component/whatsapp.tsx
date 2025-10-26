@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { MessageCircle, Mail, X } from 'lucide-react';
+import { MessageCircle, Mail} from 'lucide-react';
 
 const WhatsAppButton = () => {
   const [isExpanded, setIsExpanded] = useState(false);
