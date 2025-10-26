@@ -156,7 +156,7 @@ const WhatsAppButton = () => {
               }}
             >
               {isExpanded ? (
-                <X size={32} strokeWidth={2.5} />
+                <MessageCircle size={32} strokeWidth={2.5} />
               ) : (
                 <MessageCircle size={32} strokeWidth={2} />
               )}
